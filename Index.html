@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talia Mbithe | Cybersecurity Portfolio</title>
+  <style>
+    html {
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+      min-height: 100vh;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    body {
+      background: transparent;
+      color: #e0e7ff;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+
+    header {
+      color: #e0e7ff;
+      padding: 70px 20px 60px;
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+      position: relative;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .hero img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #00ff88;
+      text-shadow: 0 0 10px #00ff88;
+    }
+
+    header .hero-subtitle {
+      font-size: 1.2rem;
+      color: #e0e7ff;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #e0e7ff;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(45deg, #00ff88, #0088ff);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+      color: #00ff88;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin: 15px 0 25px;
+      color: #0088ff;
+      font-weight: 300;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 60px;
+    }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    ul {
+      margin-left: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      padding-left: 25px;
+      position: relative;
+      color: #e0e7ff;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    ul li:hover {
+      color: #00ff88;
+      transform: translateX(5px);
+    }
+
+    ul li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: #0088ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    ul li:hover::before {
+      color: #00ff88;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #00ff88, #0088ff);
+      color: #0f0f23;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+      background: linear-gradient(45deg, #00cc77, #0066cc);
+    }
+
+    /* CERTIFICATES SLIDER */
+    .cert-slider {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: #4f46e5 #f1f5f9;
+    }
+
+    .cert-slider::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .cert-slider::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+
+    .cert-slider::-webkit-scrollbar-thumb {
+      background: #4f46e5;
+      border-radius: 3px;
+    }
+
+    .cert-item {
+      min-width: 280px;
+      scroll-snap-align: start;
+    }
+
+    #contact-line p {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0088ff;
+    }
+
+    #contact-line a {
+      color: #e0e7ff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    #contact-line a:hover {
+      color: #00ff88;
+      text-decoration: underline;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+      color: #e0e7ff;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 50px;
+      border-top: 1px solid #00ff88;
+    }
+
+    footer p {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav .container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .lab-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container hero">
+    <img src="profile.jpeg" alt="Profile Photo">
+    <div>
+      <h1>Talia Mbithe</h1>
+      <p class="hero-subtitle">Cybersecurity Portfolio</p>
+      <p class="tagline" id="tagline">
+        Aspiring Cybersecurity Analyst | Digital Forensics Enthusiast
+      </p>
+      <p>
+        Early-career cybersecurity professional transitioning into corporate environments,
+        with hands-on experience in IT operations, network support, and security fundamentals.
+        Background includes enterprise internships, vulnerability assessment labs, and
+        continuous skills development through TryHackMe and Hack The Box.
+      </p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- BACKGROUND -->
+<section id="resume">
+  <h2>Background</h2>
+
+  <div class="content-grid">
+
+     <div>
+      <h3>Education</h3>
+      <ul>
+        <li><strong>BSc. Computer Security & Forensics</strong></li>
+        Kabarak University (2022–2026)
+      </ul>
+    </div>
+
+    <div>
+      <h3>Work Experience</h3>
+      <ul>
+        <li>STEM Instructor – Pixel Academy</li>
+        <li>Telecommunication Intern – Taifa Mobile</li>
+        <li>ICT Intern – Pioneer Insurance</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Leadership</h3>
+      <ul>
+        <li>Class Representative – Computer Forensics (2025)</li>
+        <li>Electoral Commissioner – Kabarak Univ. SSET (24/25)</li>
+        <li>Charter Member – Rotaract Club of Upper Hill</li>
+        <li>OGX Manager – AIESEC in Kabarak</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr style="border: none; height: 2px; background: linear-gradient(90deg, transparent, #00ff88, transparent); margin: 60px auto; width: 80%;">
+
+<!-- CV -->
+<section id="cv">
+  <h2>Curriculum Vitae</h2>
+
+  <p>Preview the CV below or download the full PDF.</p>
+
+  <details style="margin-top: 15px;">
+    <summary style="cursor:pointer; font-weight:600; color:#4f46e5;">
+      Preview CV
+    </summary>
+
+    <iframe 
+      src="Talia_Mbithe_CV.pdf"
+      style="width:100%; height:380px; margin-top:15px; border:1px solid #ddd; border-radius:8px;">
+    </iframe>
+  </details>
+
+  <a href="Talia_Mbithe_CV.pdf" class="btn" download>
+    Download CV (PDF)
+  </a>
+</section>
+
+<hr style="border: none; height: 2px; background: linear-gradient(90deg, transparent, #0088ff, transparent); margin: 60px auto; width: 80%;">
+
+<!-- LABS -->
+<section id="labs">
+  <h2>Lab Challenges</h2>
+
+  <div class="lab-grid">
+    <div>
+      <h3>TryHackMe</h3>
+      <ul>
+        <li>Intro to Cybersecurity</li>
+        <li>Linux & Windows Fundamentals</li>
+        <li>SQL Injection</li>
+        <li>Metasploit</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Hack The Box</h3>
+      <ul>
+        <li>Beginner Linux Machines</li>
+        <li>Enumeration & Exploitation</li>
+        <li>Privilege Escalation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr style="border: none; height: 2px; background: linear-gradient(90deg, transparent, #00ff88, transparent); margin: 60px auto; width: 80%;">
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <h2>Certificates & Training</h2>
+
+  <div class="cert-slider">
+    <div class="cert-item">
+      <h4>HCSA Presales IP Network</h4>
+      <a href="certificates/HCSA_PRESALES_IP_Network.pdf" class="btn" target="_blank">
+        View Certificate
+      </a>
+    </div>
+
+    <div class="cert-item">
+      <h4>HCSA Sales IP Network</h4>
+      <a href="certificates/HCSA_SALES_IP_Network.pdf" class="btn" target="_blank">
+        View Certificate
+      </a>
+    </div>
+
+    <div class="cert-item">
+      <h4>Aspire Leadership Program</h4>
+      <a href="certificates/Aspire_Leadership_Program.pdf" class="btn" target="_blank">
+        View Certificate
+      </a>
+    </div>
+
+    <div class="cert-item">
+      <h4>Women Techsters Cybersecurity</h4>
+      <a href="certificates/Cybersecurity_Women_Techsters_Bootcamp.pdf" class="btn" target="_blank">
+        View Certificate
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MOVED UP -->
+<section id="contact-line">
+  <p style="font-size:0.85rem; letter-spacing:1px; color:#0088ff; margin-bottom:8px;">
+    GET IN TOUCH
+  </p>
+  <p>
+    <a href="mailto:mbithetalia38@gmail.com" style="color: #e0e7ff; text-decoration: none;">mbithetalia38@gmail.com</a> |
+    <a href="https://www.linkedin.com/in/taliambithe" target="_blank" style="color: #e0e7ff; text-decoration: none;">
+      https://www.linkedin.com/in/taliambithe
+    </a> |
+    <a href="tel:+254769898590" style="color: #e0e7ff; text-decoration: none;">+254 769 898 590</a>
+  </p>
+</section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Talia Mbithe. Built with passion for cybersecurity. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Typing effect for tagline
+  const tagline = document.getElementById('tagline');
+  const text = 'Aspiring Cybersecurity Analyst | Digital Forensics Enthusiast';
+  let index = 0;
+  tagline.textContent = '';
+
+  function typeWriter() {
+    if (index < text.length) {
+      tagline.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+
+  // Start typing when page loads
+  window.addEventListener('load', () => {
+    setTimeout(typeWriter, 1000);
+  });
+
+  // Add some cyber effects
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add glow effect on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.textShadow = '0 0 20px #00ff88';
+          setTimeout(() => {
+            entry.target.style.textShadow = '';
+          }, 1000);
+        }
+      });
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Matrix rain effect (subtle)
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.zIndex = '-1';
+    canvas.style.opacity = '0.1';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const matrix = '01';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+    function draw() {
+      ctx.fillStyle = 'rgba(15, 15, 35, 0.04)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ff88';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = matrix[Math.floor(Math.random() * matrix.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 35);
+  });
+</script>
+
+</body>
+</html>
